@@ -1,64 +1,119 @@
-# Módulo Frontend: Livros e Avaliações
+# Frontend - Livros e Avaliações
 
-Este diretório contém o código frontend responsável pelas funcionalidades de visualização, busca, detalhamento e avaliação de mangás dentro do Sistema Web de Comentários e Avaliação de Mangás "NextPage". Este módulo é desenvolvido e mantido por Cassio.
+Desenvolvido por Cassio, este diretório contém o código frontend responsável pela seção de Livros e Avaliações do sistema NextPage. ele abrange a visualização da lista de mangás, páginas de detalhes individuais de mangás, e a funcionalidade de adicionar e visualizar avaliações.
 
-## Descrição Geral
+As principais responsabilidades deste módulo incluem:
+* Transcrever o design/protótipo em código HTML, CSS e JavaScript.
+* Implementar a interface do usuário para exibir informações de mangás e avaliações.
+* Capturar a interação do usuário (cliques, envios de formulários de avaliação, etc.).
+* Integrar com as APIs de backend para obter e enviar dados relacionados a mangás e avaliações.
 
-Este módulo do frontend abrange todas as interfaces de usuário relacionadas à interação com os mangás e suas avaliações. Isso inclui:
+## Configuração e Execução Local
 
-* Listagem e exibição de mangás.
-* Funcionalidades de busca por mangás.
-* Visualização detalhada de informações sobre um mangá específico.
-* Exibição de comentários e avaliações existentes.
-* Funcionalidade para usuários adicionarem novos comentários e avaliações.
+**Pré-requisitos:**
 
-O objetivo principal é fornecer uma experiência intuitiva e responsiva para os usuários navegarem pelo catálogo de mangás e compartilharem suas opiniões.
+* Python 3 instalado (Verifique executando `python --version` ou `python3 --version` no seu terminal/Prompt de Comando/PowerShell). Se não tiver, baixe e instale do site oficial do Python.
+* Node.js e npm instalados (Verifique executando `npm --version`). Necessário para gerenciar dependências frontend.
 
-## Configuração e Execução (Modo Isolado - se aplicável)
+**Passos:**
 
-*(Esta seção pode variar dependendo de como o frontend é estruturado. Se for uma Single Page Application (SPA) monolítica, pode não ser fácil rodar apenas esta parte isoladamente. Adapte conforme a realidade do projeto.)*
-
-Se este módulo puder ser desenvolvido ou testado isoladamente (por exemplo, usando Storybook para componentes, ou um servidor de desenvolvimento local que simule as APIs):
-
-1.  **Instalar dependências:**
+1.  **Navegue até o diretório deste módulo:**
+    Abra seu terminal (Git Bash, Prompt de Comando ou PowerShell) e vá para o diretório `frontend/livros-avaliacao` dentro do seu repositório clonado:
     ```bash
-    cd ../../  # Volte para o diretório raiz do frontend (nextpage/frontend)
-    npm install # Ou yarn install, dependendo do gerenciador de pacotes principal do frontend
-    cd livros-avaliacao # Volte para este diretório
+    cd nextpage/frontend/livros-avaliacao
     ```
-2.  **Rodar servidor de desenvolvimento local (Exemplo usando um script no `package.json` global ou local):**
-    ```bash
-    # Exemplo: se houver um script específico para este módulo no package.json global
-    npm run dev:livros-avaliacao
-    # Ou se você configurou um servidor local aqui (menos comum em SPA monolíticas)
-    # npm start
-    ```
-3.  **Acessar no navegador:** Abra seu navegador em `http://localhost:[PORTA]` (substitua `[PORTA]` pela porta configurada).
 
-Se não for possível rodar isoladamente, descreva como rodar a aplicação frontend completa:
+2.  **Instale as dependências:**
+    Se este módulo possuir dependências listadas no `package.json` que não são globais ao frontend, instale-as:
+    ```bash
+    npm install
+    ```
+    *(Nota: No momento, o escopo primário é HTML/CSS/JS puro, então pode não haver muitas dependências npm específicas aqui inicialmente, mas é bom ter o comando pronto.)*
 
-1.  **Navegue para o diretório raiz do frontend:**
+3.  **Inicie um servidor web local usando Python 3:**
+    Dentro do diretório `frontend/livros-avaliacao`, execute o seguinte comando para iniciar um servidor HTTP simples que servirá os arquivos estáticos:
     ```bash
-    cd ../../  # Volte para o diretório raiz do frontend (nextpage/frontend)
+    python -m http.server 8000
     ```
-2.  **Instale as dependências (se ainda não o fez):**
+    ou (dependendo da sua instalação Python)
     ```bash
-    npm install # Ou yarn install
+    python3 -m http.server 8000
     ```
-3.  **Inicie o servidor de desenvolvimento frontend:**
-    ```bash
-    npm start # Ou o comando configurado no package.json principal
-    ```
-4.  **Acesse a aplicação no navegador:** Abra `http://localhost:[PORTA]` e navegue até as páginas relacionadas a mangás e avaliações.
+    Este comando iniciará um servidor na porta 8000.
+
+4.  **Acesse no Navegador:**
+    Abra seu navegador web e vá para `http://localhost:8000`. Você deverá ver a página de índice (geralmente `index.html` se existir na raiz deste diretório ou a listagem dos arquivos). Navegue para a página específica que você está desenvolvendo dentro de `/pages`. Por exemplo, se tiver um `pages/lista-mangas.html`, acesse `http://localhost:8000/pages/lista-mangas.html`.
+
+**Desenvolvimento com VS Code:**
+
+* Abra a pasta `nextpage` no VS Code (`File > Open Folder`).
+* Você pode usar a extensão "Live Server" do VS Code como alternativa ao servidor Python para pré-visualizar arquivos HTML diretamente no editor. Clique com o botão direito em um arquivo HTML e selecione "Open with Live Server".
+* Utilize o terminal integrado do VS Code (`View > Terminal`) para executar os comandos `cd` e `npm install`.
 
 ## Dependências Específicas
 
-Este módulo utiliza as dependências globais configuradas no `package.json` principal do diretório `/frontend`.
+Este módulo frontend utiliza algumas bibliotecas e ferramentas para facilitar o desenvolvimento e a comunicação com o backend. As dependências são gerenciadas através do `package.json` neste diretório.
 
-*(Liste aqui quaisquer bibliotecas ou frameworks específicos que **apenas** este módulo utiliza, se houver. Por exemplo, uma biblioteca de sliders específica para a listagem, ou uma biblioteca de avaliação por estrelas.)*
+* **Dependencies:**
+    * `axios`: Uma biblioteca cliente HTTP baseada em Promises para o navegador e Node.js. Usada para fazer requisições assíncronas (GET, POST, etc.) às APIs do backend para obter dados de mangás e avaliações e enviar novas avaliações.
 
--   `nome-da-dependencia-especifica`: Descrição breve do que faz. (Instalada via `npm install nome-da-dependencia-especifica` no diretório `/frontend` ou neste diretório, dependendo de como as dependências são gerenciadas).
+* **Dev Dependencies:**
+    * `eslint`: Um linter plugável para identificar e reportar padrões encontrados em código ECMAScript/JavaScript. Usado para manter a qualidade do código e forçar padrões de estilo.
+    * `prettier`: Um formatador de código opinativo. Usado para garantir um estilo de código consistente e limpo automaticamente, trabalhando em conjunto com o ESLint.
+    * `live-server` (Opcional, se você o instalou): Um pequeno servidor HTTP com Live Reload. Usado para servir os arquivos estáticos localmente durante o desenvolvimento e ver as mudanças no navegador em tempo real.
+
+Para instalar estas dependências, execute o comando `npm install` dentro deste diretório (`frontend/livros-avaliacao`).
 
 ## Estrutura Interna
 
-A organização dos arquivos dentro deste diretório (`/frontend/livros-avaliacao`) segue a seguinte estrutura:
+A organização dos arquivos dentro deste diretório segue a seguinte estrutura lógica:
+
+
+* **`/src`**: Contém o código JavaScript que orquestra o funcionamento da aplicação, como inicialização de rotas, configuração de eventos globais, etc.
+* **`/pages`**: Cada subdiretório ou conjunto de arquivos aqui representa uma "página" ou "tela" distinta na seção de Livros/Avaliação. É onde o layout principal de cada tela é definido em HTML, estilizado em CSS e com a lógica específica daquela tela em JavaScript.
+* **`/components`**: Contém blocos menores e reutilizáveis da interface do usuário. Desenvolver componentes modulares aqui facilita a manutenção e evita a duplicação de código HTML/CSS/JS.
+
+## Instruções de Desenvolvimento e Testes
+
+* Ao desenvolver uma nova funcionalidade, procure dividi-la em componentes menores e reutilizáveis dentro de `/components`.
+* Para testar visualmente suas alterações em HTML/CSS/JS, use o servidor HTTP local (`python -m http.server 8000`) ou a extensão Live Server do VS Code.
+* Para testar a integração com o backend, certifique-se de que o servidor backend está rodando e acessível. Você precisará fazer requisições HTTP a partir do seu código JavaScript.
+* (Adicionar aqui instruções específicas sobre como rodar testes unitários ou de integração, se forem implementados mais tarde. Ex: `npm test`)
+
+## Integração com o Backend
+
+Este módulo frontend se comunica com o backend (desenvolvido por Guilherme Lobo) através de APIs. A comunicação é baseada em requisições HTTP (GET, POST, PUT, DELETE) geralmente no formato REST.
+
+* **APIs Utilizadas:**
+    * `GET /api/mangas`: Para obter a lista de todos os mangás.
+    * `GET /api/mangas/{id}`: Para obter detalhes de um mangá específico.
+    * `GET /api/mangas/{id}/avaliacoes`: Para obter as avaliações de um mangá específico.
+    * `POST /api/mangas/{id}/avaliacoes`: Para enviar uma nova avaliação para um mangá.
+
+* **Formato dos Dados:**
+    A comunicação com o backend utiliza o formato JSON (JavaScript Object Notation) para troca de dados.
+    * **Exemplo de resposta GET /api/mangas:**
+        ```json
+        [
+          {
+            "id": 1,
+            "titulo": "Nome do Mangá 1",
+            "autor": "Nome do Autor 1",
+            "capa_url": "...",
+            "sinopse": "...",
+            "media_avaliacoes": 4.5
+          },
+          // ... mais mangás
+        ]
+        ```
+    * **Exemplo de payload POST /api/mangas/{id}/avaliacoes:**
+        ```json
+        {
+          "usuario_id": 123,
+          "nota": 5,
+          "comentario": "Ótimo mangá!"
+        }
+        ```
+
+
+---
