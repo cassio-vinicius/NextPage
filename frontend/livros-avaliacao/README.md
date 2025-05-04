@@ -69,6 +69,8 @@ A organização dos arquivos dentro deste diretório segue a seguinte estrutura 
 * **`/src`**: Contém o código JavaScript que orquestra o funcionamento da aplicação, como inicialização de rotas, configuração de eventos globais, etc.
 * **`/pages`**: Cada subdiretório ou conjunto de arquivos aqui representa uma "página" ou "tela" distinta na seção de Livros/Avaliação. É onde o layout principal de cada tela é definido em HTML, estilizado em CSS e com a lógica específica daquela tela em JavaScript.
 * **`/components`**: Contém blocos menores e reutilizáveis da interface do usuário. Desenvolver componentes modulares aqui facilita a manutenção e evita a duplicação de código HTML/CSS/JS.
+* **`/assets`**: Este diretório é usado para armazenar arquivos estáticos que são servidos diretamente pelo servidor web, como imagens, ícones, fontes ou outros recursos multimídia. Você pode organizar subdiretórios dentro dele, como `/assets/images`, `/assets/fonts`, etc.
+
 
 ## Instruções de Desenvolvimento e Testes
 
