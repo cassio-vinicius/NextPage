@@ -28,7 +28,6 @@ As principais responsabilidades deste módulo incluem:
     ```bash
     npm install
     ```
-    *(Nota: No momento, o escopo primário é HTML/CSS/JS puro, então pode não haver muitas dependências npm específicas aqui inicialmente, mas é bom ter o comando pronto.)*
 
 3.  **Inicie um servidor web local usando Python 3:**
     Dentro do diretório `frontend/livros-avaliacao`, execute o seguinte comando para iniciar um servidor HTTP simples que servirá os arquivos estáticos:
@@ -39,7 +38,6 @@ As principais responsabilidades deste módulo incluem:
     ```bash
     python3 -m http.server 8000
     ```
-    Este comando iniciará um servidor na porta 8000.
 
 4.  **Acesse no Navegador:**
     Abra seu navegador web e vá para `http://localhost:8000`. Você deverá ver a página de índice (geralmente `index.html` se existir na raiz deste diretório ou a listagem dos arquivos). Navegue para a página específica que você está desenvolvendo dentro de `/pages`. Por exemplo, se tiver um `pages/lista-mangas.html`, acesse `http://localhost:8000/pages/lista-mangas.html`.
@@ -47,7 +45,6 @@ As principais responsabilidades deste módulo incluem:
 **Desenvolvimento com VS Code:**
 
 * Abra a pasta `nextpage` no VS Code (`File > Open Folder`).
-* Você pode usar a extensão "Live Server" do VS Code como alternativa ao servidor Python para pré-visualizar arquivos HTML diretamente no editor. Clique com o botão direito em um arquivo HTML e selecione "Open with Live Server".
 * Utilize o terminal integrado do VS Code (`View > Terminal`) para executar os comandos `cd` e `npm install`.
 
 ## Dependências Específicas
@@ -76,7 +73,7 @@ A organização dos arquivos dentro deste diretório segue a seguinte estrutura 
 ## Instruções de Desenvolvimento e Testes
 
 * Ao desenvolver uma nova funcionalidade, procure dividi-la em componentes menores e reutilizáveis dentro de `/components`.
-* Para testar visualmente suas alterações em HTML/CSS/JS, use o servidor HTTP local (`python -m http.server 8000`) ou a extensão Live Server do VS Code.
+* Para testar visualmente suas alterações em HTML/CSS/JS, use o servidor HTTP local (`python -m http.server 8000`).
 * Para testar a integração com o backend, certifique-se de que o servidor backend está rodando e acessível. Você precisará fazer requisições HTTP a partir do seu código JavaScript.
 * (Adicionar aqui instruções específicas sobre como rodar testes unitários ou de integração, se forem implementados mais tarde. Ex: `npm test`)
 
@@ -92,28 +89,4 @@ Este módulo frontend se comunica com o backend (desenvolvido por Guilherme Lobo
 
 * **Formato dos Dados:**
     A comunicação com o backend utiliza o formato JSON (JavaScript Object Notation) para troca de dados.
-    * **Exemplo de resposta GET /api/mangas:**
-        ```json
-        [
-          {
-            "id": 1,
-            "titulo": "Nome do Mangá 1",
-            "autor": "Nome do Autor 1",
-            "capa_url": "...",
-            "sinopse": "...",
-            "media_avaliacoes": 4.5
-          },
-          // ... mais mangás
-        ]
-        ```
-    * **Exemplo de payload POST /api/mangas/{id}/avaliacoes:**
-        ```json
-        {
-          "usuario_id": 123,
-          "nota": 5,
-          "comentario": "Ótimo mangá!"
-        }
-        ```
-
-
----
+    ---
