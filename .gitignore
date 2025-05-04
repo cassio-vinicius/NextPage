@@ -1,0 +1,51 @@
+# Ignorar diretórios de dependências do Node.js
+node_modules/
+
+# Ignorar arquivos de log e de depuração
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Ignorar arquivos de build e de distribuição
+# Dependendo do seu processo de build (se você adicionar um bundler futuramente)
+dist/
+build/
+out/
+coverage/
+
+# Ignorar arquivos de configuração de ambiente local
+.env
+.env.local
+.env.*.local
+
+# Ignorar arquivos gerados por IDEs
+.vscode/           # Configurações do VS Code
+.idea/             # Configurações do IntelliJ/WebStorm
+*.swp              # Arquivos swap do Vim
+
+# Ignorar arquivos do sistema operacional
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# Ignorar arquivos temporários
+*~
+*.tmp
+
+# Ignorar arquivos de cache
+.cache/
+
+# --- Específico do Backend (se houver arquivos para ignorar) ---
+# Ex: arquivos compilados, logs específicos do backend
+# Por exemplo, se usar Python:
+__pycache__/
+*.pyc
+.venv/ # Se usar virtual environment
+
+# --- Específico do Banco de Dados (se houver arquivos para ignorar) ---
+# Ex: arquivos de dump locais, logs do banco de dados
+
+# Ignorar o documento original do TCC na pasta docs, se não quiser versionar o .docx
+# docs/TCC Segunda etapa.docx
